@@ -1,602 +1,1531 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROSE Corp - Resilience Research & Translation Infrastructure</title>
-    <meta name="description" content="ROSE Corp develops mathematical frameworks for understanding and measuring human coherence under systemic misperception. Home of the Rose Glass translation lens.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --rose: #FF6B9D;
-            --rose-dark: #E5527D;
-            --charcoal: #2C3E50;
-            --charcoal-light: #34495E;
-            --cream: #FFF8F0;
-            --gold: #D4AF37;
-            --text-dark: #1A1A1A;
-            --text-light: #6B7280;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROSE Corp. — Recognition Of Synthetic-organic Expression</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #c4756e;
+  --rose-deep: #8b3a3a;
+  --rose-glow: #d4918b;
+  --rose-faint: #f0dcd9;
+  --jade: #4a6741;
+  --jade-deep: #2d3f28;
+  --jade-light: #6b8f60;
+  --stone: #8c8578;
+  --granite: #1a1916;
+  --granite-warm: #2a2723;
+  --cream: #f5f0eb;
+  --cream-warm: #ede5dc;
+  --snow: #faf8f6;
+  --gold: #c4a35a;
+  --gold-muted: #a89060;
+  --text-primary: #1a1916;
+  --text-secondary: #5a5650;
+  --text-light: #8c8578;
+  --text-on-dark: #e8e2da;
+  --text-dim: #9a9488;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background: var(--cream);
-        }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--snow);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-        /* Header */
-        header {
-            background: var(--charcoal);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+/* ─── GLOBAL NOISE TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* ─── TYPOGRAPHY ─── */
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+.mono { font-family: 'JetBrains Mono', monospace; }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--rose);
-        }
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(250, 248, 246, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(140, 133, 120, 0.1);
+  transition: all 0.4s ease;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+nav.scrolled {
+  padding: 0.8rem 3rem;
+  background: rgba(250, 248, 246, 0.95);
+  box-shadow: 0 2px 40px rgba(26, 25, 22, 0.06);
+}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
 
-        .nav-links a:hover {
-            color: var(--rose);
-        }
+.nav-logo-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose) 0%, var(--rose-deep) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
-            color: white;
-            padding: 8rem 0 6rem;
-            text-align: center;
-        }
+.nav-logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+}
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
 
-        .hero .highlight {
-            color: var(--rose);
-        }
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+}
 
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: rgba(255,255,255,0.9);
-        }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.3s;
+  position: relative;
+}
 
-        .cta-button {
-            display: inline-block;
-            background: var(--rose);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-        }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--rose);
+  transition: width 0.3s;
+}
 
-        .cta-button:hover {
-            background: var(--rose-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
-        }
+.nav-links a:hover { color: var(--rose-deep); }
+.nav-links a:hover::after { width: 100%; }
 
-        /* Main Content */
-        section {
-            padding: 5rem 0;
-        }
+.nav-cta {
+  padding: 0.55rem 1.4rem !important;
+  background: var(--granite) !important;
+  color: var(--cream) !important;
+  border-radius: 4px;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.06em !important;
+  transition: all 0.3s !important;
+}
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--charcoal);
-        }
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--rose-deep) !important; color: white !important; }
 
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--charcoal);
-        }
+/* ─── MOBILE NAV ─── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 700px;
-        }
+.nav-toggle span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--text-primary);
+  transition: all 0.3s;
+}
 
-        /* Framework Section */
-        .framework {
-            background: white;
-        }
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
 
-        .dimensions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(196, 117, 110, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 20% 60%, rgba(74, 103, 65, 0.04) 0%, transparent 70%);
+}
 
-        .dimension-card {
-            background: var(--cream);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--rose);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(140, 133, 120, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 133, 120, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
 
-        .dimension-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
 
-        .dimension-symbol {
-            font-size: 2.5rem;
-            color: var(--rose);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
+.hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
 
-        .dimension-name {
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 0.5rem;
-        }
+.hero-label::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--rose);
+}
 
-        .dimension-description {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
+.hero h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
 
-        /* Research Section */
-        .research {
-            background: var(--charcoal);
-            color: white;
-        }
+.hero h1 em {
+  font-style: italic;
+  color: var(--rose-deep);
+}
 
-        .research h2 {
-            color: white;
-        }
+.hero-acronym {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.6s forwards;
+}
 
-        .research .section-subtitle {
-            color: rgba(255,255,255,0.8);
-        }
+.hero-acronym span { color: var(--rose); font-weight: 600; }
 
-        .paper-highlight {
-            background: var(--charcoal-light);
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-            border-left: 4px solid var(--gold);
-        }
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.8s forwards;
+}
 
-        .paper-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-            font-weight: 600;
-        }
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1s forwards;
+}
 
-        .equation {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            background: rgba(0,0,0,0.2);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: var(--granite);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
 
-        .key-insight {
-            margin-top: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--rose);
-            color: rgba(255,255,255,0.9);
-            font-size: 1.05rem;
-        }
+.btn-primary:hover { background: var(--rose-deep); color: white; transform: translateY(-1px); }
 
-        /* Applications */
-        .applications {
-            background: white;
-        }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(140, 133, 120, 0.3);
+  border-radius: 4px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
 
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+.btn-secondary:hover { border-color: var(--rose); color: var(--rose-deep); }
 
-        .app-card {
-            background: var(--cream);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.3s;
-        }
+.hero-metrics {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1.2s forwards;
+}
 
-        .app-card:hover {
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
+.hero-metric {
+  text-align: right;
+}
 
-        .app-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+.hero-metric-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--rose-deep);
+  line-height: 1;
+}
 
-        /* About */
-        .about {
-            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
-        }
+.hero-metric-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-light);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+/* ─── SECTION SHARED ─── */
+.section {
+  padding: 7rem 3rem;
+}
 
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
+.section-dark {
+  background: var(--granite);
+  color: var(--text-on-dark);
+}
 
-        .about-highlight {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--rose);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
+.section-warm {
+  background: var(--cream);
+}
 
-        blockquote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--charcoal);
-            margin: 2rem 0;
-            padding-left: 2rem;
-            border-left: 4px solid var(--gold);
-        }
+.section-header {
+  margin-bottom: 4rem;
+}
 
-        .author-credit {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-        }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
 
-        /* Footer */
-        footer {
-            background: var(--charcoal);
-            color: white;
-            padding: 3rem 0 1.5rem;
-            text-align: center;
-        }
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
 
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
+.section-dark .section-label { color: var(--rose-glow); }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  max-width: 700px;
+}
 
-        .footer-links a {
-            color: var(--rose);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+.section-dark .section-title { color: var(--cream); }
 
-        .footer-links a:hover {
-            color: white;
-        }
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-top: 1.5rem;
+  line-height: 1.8;
+}
 
-        .copyright {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-        }
+.section-dark .section-subtitle { color: var(--text-dim); }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+/* ─── WHAT WE BUILD (PHILOSOPHY) ─── */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
 
-            .hero p {
-                font-size: 1.1rem;
-            }
+.philosophy-card {
+  padding: 2.5rem;
+  border: 1px solid rgba(140, 133, 120, 0.12);
+  border-radius: 6px;
+  background: white;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
 
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
+.philosophy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--rose);
+  transition: height 0.4s;
+}
 
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+.philosophy-card:hover::before { height: 100%; }
+.philosophy-card:hover { box-shadow: 0 8px 40px rgba(26, 25, 22, 0.06); transform: translateY(-2px); }
 
-            .dimensions-grid,
-            .app-grid {
-                grid-template-columns: 1fr;
-            }
+.card-dimension {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--rose);
+  margin-bottom: 0.5rem;
+}
 
-            section {
-                padding: 3rem 0;
-            }
-        }
-    </style>
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ─── PRODUCTS / TOOLS ─── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.product-card {
+  padding: 2.5rem 2rem;
+  background: var(--granite-warm);
+  border-radius: 6px;
+  border: 1px solid rgba(196, 117, 110, 0.08);
+  transition: all 0.4s;
+  position: relative;
+}
+
+.product-card:hover {
+  border-color: rgba(196, 117, 110, 0.25);
+  transform: translateY(-3px);
+}
+
+.product-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(196, 117, 110, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--rose-glow);
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 0.6rem;
+}
+
+.product-desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.product-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--rose-glow);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s;
+}
+
+.product-link:hover { gap: 0.8rem; }
+
+/* ─── APPLICATIONS ─── */
+.applications-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.app-card {
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(140, 133, 120, 0.12);
+  border-radius: 6px;
+  background: white;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.app-card:hover { border-color: var(--rose); box-shadow: 0 4px 24px rgba(196, 117, 110, 0.08); }
+
+.app-icon-lg {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.app-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-desc {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ─── GITHUB / REPOS ─── */
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.repo-card {
+  padding: 1.8rem;
+  border: 1px solid rgba(196, 117, 110, 0.1);
+  border-radius: 6px;
+  background: var(--granite-warm);
+  transition: all 0.3s;
+}
+
+.repo-card:hover { border-color: rgba(196, 117, 110, 0.3); }
+
+.repo-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--rose-glow);
+  margin-bottom: 0.4rem;
+}
+
+.repo-desc {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.repo-meta {
+  display: flex;
+  gap: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+.repo-meta span { display: flex; align-items: center; gap: 0.3rem; }
+.repo-meta .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.dot-python { background: #3572A5; }
+.dot-ts { background: #2b7489; }
+
+.repo-link-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  color: var(--rose-glow);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  transition: gap 0.3s;
+}
+
+.repo-link-all:hover { gap: 0.8rem; }
+
+/* ─── CONTACT ─── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-info h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.contact-detail {
+  margin-bottom: 1.5rem;
+}
+
+.contact-detail-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.3rem;
+}
+
+.contact-detail-value {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.contact-detail-value a {
+  color: var(--rose-deep);
+  text-decoration: none;
+}
+
+.contact-detail-value a:hover { text-decoration: underline; }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row { display: flex; gap: 1.2rem; }
+
+.form-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.form-field input, .form-field textarea, .form-field select {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(140, 133, 120, 0.2);
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  background: white;
+  color: var(--text-primary);
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+  border-color: var(--rose);
+}
+
+.form-field textarea { resize: vertical; min-height: 100px; }
+
+/* ─── JOIN US ─── */
+.join-intro {
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+.join-intro p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.join-positions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.position-card {
+  padding: 2rem;
+  border: 1px solid rgba(140, 133, 120, 0.15);
+  border-radius: 6px;
+  background: white;
+  transition: all 0.3s;
+}
+
+.position-card:hover { border-color: var(--rose); box-shadow: 0 4px 20px rgba(196, 117, 110, 0.08); }
+
+.position-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--jade);
+  background: rgba(74, 103, 65, 0.08);
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.position-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.position-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.position-terms {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.position-terms strong { color: var(--text-secondary); }
+
+.join-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--rose);
+  margin: 3rem 0;
+}
+
+.join-form {
+  max-width: 700px;
+}
+
+.join-form h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+
+.join-form-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.questionnaire-section {
+  margin-bottom: 2rem;
+}
+
+.questionnaire-section h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(140, 133, 120, 0.1);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 3rem;
+  background: var(--granite);
+  border-top: 1px solid rgba(196, 117, 110, 0.08);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+}
+
+.footer-principle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+.footer-right {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-right a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.3s;
+}
+
+.footer-right a:hover { color: var(--rose-glow); }
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(140, 133, 120, 0.08);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.footer-sdvosb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-muted);
+}
+
+/* ─── QUOTE BLOCK ─── */
+.quote-section {
+  padding: 5rem 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-primary);
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
+}
+
+.quote-attr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  letter-spacing: 0.12em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .hero-metrics { display: none; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .repos-grid { grid-template-columns: repeat(2, 1fr); }
+  .applications-row { grid-template-columns: repeat(2, 1fr); }
+  .join-positions { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(250, 248, 246, 0.98);
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(140, 133, 120, 0.1);
+  }
+
+  .section { padding: 4rem 1.5rem; }
+  .hero { padding: 7rem 1.5rem 3rem; }
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .repos-grid { grid-template-columns: 1fr; }
+  .applications-row { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .join-positions { grid-template-columns: 1fr; }
+  .form-row { flex-direction: column; }
+  .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+  .footer-left { flex-direction: column; gap: 0.8rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">ROSE Corp</div>
-            <ul class="nav-links">
-                <li><a href="#framework">Framework</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#applications">Applications</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>The <span class="highlight">Rose Glass</span></h1>
-            <p>A mathematical framework for perceiving human coherence through systemic misperception</p>
-            <a href="#framework" class="cta-button">Explore the Framework</a>
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <circle cx="8" cy="8" r="2" fill="rgba(255,255,255,0.5)"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">ROSE Corp.</span>
+  </a>
+
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#tools">Tools & API</a></li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#repos">GitHub</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#join" class="nav-cta">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">MacGregor Holding Company &middot; SDVOSB</div>
+    <h1>Translation, <em>not</em><br>measurement.</h1>
+    <div class="hero-acronym">
+      <span>R</span>ecognition <span>O</span>f <span>S</span>ynthetic-organic <span>E</span>xpression
+    </div>
+    <p class="hero-desc">
+      A mathematical lens that enables AI systems to perceive human communication
+      across cultural and neurological difference. We build the infrastructure
+      for authentic understanding between synthetic and organic minds.
+    </p>
+    <div class="hero-actions">
+      <a href="#tools" class="btn-primary">Explore the Framework &rarr;</a>
+      <a href="https://github.com/GreatPyreneseDad" class="btn-secondary" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+
+  <div class="hero-metrics">
+    <div class="hero-metric">
+      <div class="hero-metric-value">92%</div>
+      <div class="hero-metric-label">Escalation Detection</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-value">15+</div>
+      <div class="hero-metric-label">Cultural Calibrations</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-value">20-60s</div>
+      <div class="hero-metric-label">Advance Prediction</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-value">4+2</div>
+      <div class="hero-metric-label">Core Dimensions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ QUOTE ═══════════════════ -->
+<div class="quote-section">
+  <p class="quote-text">"Coherence is constructed, not discovered."</p>
+  <span class="quote-attr">— FIRST PRINCIPLE</span>
+</div>
+
+<!-- ═══════════════════ FRAMEWORK ═══════════════════ -->
+<section id="framework" class="section section-warm">
+  <div class="section-header fade-in">
+    <div class="section-label">The Framework</div>
+    <h2 class="section-title">Four dimensions. Infinite lenses.<br>One honest translation.</h2>
+    <p class="section-subtitle">
+      Rose Glass doesn't score or judge human expression. It translates organic patterns
+      for synthetic perception — revealing what's present and alive, not what's right or wrong.
+    </p>
+  </div>
+
+  <div class="philosophy-grid">
+    <div class="philosophy-card fade-in">
+      <div class="card-dimension">Ψ</div>
+      <div class="card-title">Internal Consistency</div>
+      <p class="card-text">How ideas resonate within themselves. Thematic unity, structural harmony — the internal architecture of expression. Not correctness. Coherence.</p>
+    </div>
+    <div class="philosophy-card fade-in">
+      <div class="card-dimension">ρ</div>
+      <div class="card-title">Accumulated Wisdom</div>
+      <p class="card-text">Integration of experience and knowledge. Metaphorical depth, conceptual richness — the geological compression of lived understanding into language.</p>
+    </div>
+    <div class="philosophy-card fade-in">
+      <div class="card-dimension">q</div>
+      <div class="card-title">Moral Activation Energy</div>
+      <p class="card-text">The heat and urgency of values in motion. Emotional investment, ethical engagement — the energy that drives expression beyond information into meaning.</p>
+    </div>
+    <div class="philosophy-card fade-in">
+      <div class="card-dimension">f</div>
+      <div class="card-title">Social Belonging Architecture</div>
+      <p class="card-text">How individual expression connects to collective. Relational perspective, social framing — the bridges between self and community in every utterance.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 2.5rem; display: flex; gap: 3rem; flex-wrap: wrap;" class="fade-in">
+    <div>
+      <div style="font-family: 'JetBrains Mono'; font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.1em; margin-bottom: 0.3rem;">EXTENDED DIMENSIONS</div>
+      <div style="font-family: 'Cormorant Garamond'; font-size: 1.1rem; color: var(--text-secondary);">
+        <strong style="color: var(--rose-deep);">τ</strong> Temporal Depth &nbsp;&middot;&nbsp; <strong style="color: var(--rose-deep);">λ</strong> Lens Interference &nbsp;&middot;&nbsp; <strong style="color: var(--rose-deep);">σ</strong> Veritas Distortion
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TOOLS & API ═══════════════════ -->
+<section id="tools" class="section section-dark">
+  <div class="section-header fade-in">
+    <div class="section-label">Tools & API</div>
+    <h2 class="section-title">MCP Servers, Claude Tools,<br>and production-ready engines.</h2>
+    <p class="section-subtitle">
+      Rose Glass ships as Model Context Protocol servers, Python engines, and
+      TypeScript integrations — ready to lens any LLM or enterprise system.
+    </p>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card fade-in">
+      <div class="product-icon">🔮</div>
+      <div class="product-name">Rose Glass Core</div>
+      <p class="product-desc">The translation engine. Four-dimensional perception with biological optimization, cultural calibrations, and Veritas authenticity detection. Python 3.10+.</p>
+      <a href="https://github.com/GreatPyreneseDad/rose-glass" class="product-link" target="_blank">View repository &rarr;</a>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-icon">🪞</div>
+      <div class="product-name">Rose Looking Glass</div>
+      <p class="product-desc">API-ready multi-lens perception. Extended dimensions (τ, λ), gradient tracking, real-time streaming, and neurodivergent calibrations.</p>
+      <a href="https://github.com/GreatPyreneseDad/rose-looking-glass" class="product-link" target="_blank">View repository &rarr;</a>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-icon">⚗️</div>
+      <div class="product-name">Data Enzymatics</div>
+      <p class="product-desc">Metabolic counter-architecture for information processing. Natural activation curves, substrate saturation, and decay functions.</p>
+      <a href="https://github.com/GreatPyreneseDad" class="product-link" target="_blank">View repository &rarr;</a>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-icon">🦑</div>
+      <div class="product-name">CERATA</div>
+      <p class="product-desc">Self-evolving code integration framework. Hunt, consume, and metabolize external codebases with Rose Glass quality perception.</p>
+      <a href="https://github.com/GreatPyreneseDad" class="product-link" target="_blank">View repository &rarr;</a>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-icon">🏥</div>
+      <div class="product-name">MedDevice Sales MCP</div>
+      <p class="product-desc">MCP Server for Salesforce integration in medical device sales. Clinical urgency, procurement cycles, and stakeholder pattern translation.</p>
+      <a href="https://github.com/GreatPyreneseDad/rose-glass-salesforce" class="product-link" target="_blank">View repository &rarr;</a>
+    </div>
+
+    <div class="product-card fade-in">
+      <div class="product-icon">📜</div>
+      <div class="product-name">LLM Lens v2</div>
+      <p class="product-desc">System-prompt-ready translation protocols. Lens any LLM through Rose Glass with recovery integrals and resilience modeling.</p>
+      <a href="https://github.com/GreatPyreneseDad/rose-glass" class="product-link" target="_blank">View repository &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ APPLICATIONS ═══════════════════ -->
+<section id="applications" class="section">
+  <div class="section-header fade-in">
+    <div class="section-label">Applications</div>
+    <h2 class="section-title">Where translation<br>changes outcomes.</h2>
+    <p class="section-subtitle">Rose Glass deploys wherever the gap between human expression and system perception carries real consequences.</p>
+  </div>
+
+  <div class="applications-row">
+    <div class="app-card fade-in">
+      <div class="app-icon-lg">🛡️</div>
+      <div class="app-name">Law Enforcement</div>
+      <p class="app-desc">Officer wellness, de-escalation training, community interaction with cultural competency. Designed for DEA Human Performance Services.</p>
+    </div>
+    <div class="app-card fade-in">
+      <div class="app-icon-lg">🩺</div>
+      <div class="app-name">Healthcare</div>
+      <p class="app-desc">Physician resilience, patient communication, medical professional formation. Physicians Mountain for medical education.</p>
+    </div>
+    <div class="app-card fade-in">
+      <div class="app-icon-lg">🌿</div>
+      <div class="app-name">Addiction Recovery</div>
+      <p class="app-desc">Recovery pattern analysis for counselors. Authentic vs. performative progress detection. Integration with treatment platforms.</p>
+    </div>
+    <div class="app-card fade-in">
+      <div class="app-icon-lg">🏢</div>
+      <div class="app-name">Enterprise CRM</div>
+      <p class="app-desc">Salesforce integration, lead coherence scoring, stakeholder pattern translation. Cultural bias mitigation for corporate AI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ GITHUB / REPOS ═══════════════════ -->
+<section id="repos" class="section section-dark">
+  <div class="section-header fade-in">
+    <div class="section-label">Open Repositories</div>
+    <h2 class="section-title">Built in the open.<br>25,000+ lines of production code.</h2>
+  </div>
+
+  <div class="repos-grid">
+    <div class="repo-card fade-in">
+      <div class="repo-name">rose-glass</div>
+      <div class="repo-desc">Core ML framework. Four-dimensional translation with cultural lens calibrations and biological optimization.</div>
+      <div class="repo-meta"><span><i class="dot dot-python"></i> Python</span> <span>Core</span></div>
+    </div>
+    <div class="repo-card fade-in">
+      <div class="repo-name">rose-looking-glass</div>
+      <div class="repo-desc">API-ready extended perception. Streaming, gradients, temporal depth, and Veritas detection.</div>
+      <div class="repo-meta"><span><i class="dot dot-python"></i> Python</span> <span>API</span></div>
+    </div>
+    <div class="repo-card fade-in">
+      <div class="repo-name">RoseGlassLE</div>
+      <div class="repo-desc">Law enforcement extensions. Officer wellness, stress prediction, neurodivergent calibrations.</div>
+      <div class="repo-meta"><span><i class="dot dot-python"></i> Python</span> <span>LE</span></div>
+    </div>
+    <div class="repo-card fade-in">
+      <div class="repo-name">rose-glass-recovery</div>
+      <div class="repo-desc">Addiction counseling translation. Recovery pattern recognition and authentic progress detection.</div>
+      <div class="repo-meta"><span><i class="dot dot-python"></i> Python</span> <span>Recovery</span></div>
+    </div>
+    <div class="repo-card fade-in">
+      <div class="repo-name">rose-glass-salesforce</div>
+      <div class="repo-desc">Salesforce CRM integration with MCP Server. Medical device sales and enterprise perception.</div>
+      <div class="repo-meta"><span><i class="dot dot-ts"></i> TypeScript</span> <span>MCP</span></div>
+    </div>
+    <div class="repo-card fade-in">
+      <div class="repo-name">rose-glass-team-coherence</div>
+      <div class="repo-desc">Team assessment for military and organizational contexts. Unit cohesion through translation.</div>
+      <div class="repo-meta"><span><i class="dot dot-python"></i> Python</span> <span>Team</span></div>
+    </div>
+  </div>
+
+  <a href="https://github.com/GreatPyreneseDad" class="repo-link-all fade-in" target="_blank">
+    View all repositories on GitHub &rarr;
+  </a>
+</section>
+
+<!-- ═══════════════════ LEGE QUOTE ═══════════════════ -->
+<div class="quote-section" style="background: var(--cream);">
+  <p class="quote-text">"Living in the glare of a white-room moment, your eyes can't help but dilate."</p>
+  <span class="quote-attr">— LEGE</span>
+</div>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact" class="section">
+  <div class="section-header fade-in">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Start a conversation.</h2>
+    <p class="section-subtitle">Whether you're exploring integration, partnership, or just want to understand what translation infrastructure means — we'd like to hear from you.</p>
+  </div>
+
+  <div class="contact-grid fade-in">
+    <div class="contact-info">
+      <h3>ROSE Corp.</h3>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Parent Company</div>
+        <div class="contact-detail-value">MacGregor Holding Company</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Headquarters</div>
+        <div class="contact-detail-value">Jackson Hole, Wyoming</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Founder</div>
+        <div class="contact-detail-value">Christopher MacGregor bin Joseph</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Classification</div>
+        <div class="contact-detail-value">Service-Disabled Veteran-Owned Small Business (SDVOSB)</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">GitHub</div>
+        <div class="contact-detail-value"><a href="https://github.com/GreatPyreneseDad" target="_blank">github.com/GreatPyreneseDad</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value"><a href="mailto:chris@macgregorholding.com">chris@macgregorholding.com</a></div>
+      </div>
+    </div>
+
+    <div class="contact-form" id="contact-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="c-name">Name</label>
+          <input type="text" id="c-name" placeholder="Your name">
         </div>
-    </section>
-
-    <section id="framework" class="framework">
-        <div class="container">
-            <h2>The Four Dimensions of Coherence</h2>
-            <p class="section-subtitle">
-                The Rose Glass reveals four wavelengths of human expression that traditional measurement misses
-            </p>
-
-            <div class="dimensions-grid">
-                <div class="dimension-card">
-                    <div class="dimension-symbol">Ψ</div>
-                    <div class="dimension-name">Psi — Internal Consistency</div>
-                    <p class="dimension-description">
-                        Harmonic alignment of thoughts. Not "logic" in the academic sense, but the way ideas resonate or clash—including under trauma and pressure.
-                    </p>
-                </div>
-
-                <div class="dimension-card">
-                    <div class="dimension-symbol">ρ</div>
-                    <div class="dimension-name">Rho — Accumulated Wisdom</div>
-                    <p class="dimension-description">
-                        Depth of integrated experience. Street knowledge counts. Survival knowledge counts. Non-academic wisdom carries equivalent depth.
-                    </p>
-                </div>
-
-                <div class="dimension-card">
-                    <div class="dimension-symbol">q</div>
-                    <div class="dimension-name">Q — Moral Activation Energy</div>
-                    <p class="dimension-description">
-                        Heat and urgency of values in motion. Biologically optimized to prevent extremism. Appropriate emotional activation, not pathology.
-                    </p>
-                </div>
-
-                <div class="dimension-card">
-                    <div class="dimension-symbol">f</div>
-                    <div class="dimension-name">F — Social Belonging Architecture</div>
-                    <p class="dimension-description">
-                        How individual expression connects to collective structure. Extended family is not codependency. Community identity is not dysfunction.
-                    </p>
-                </div>
-            </div>
+        <div class="form-field">
+          <label for="c-org">Organization</label>
+          <input type="text" id="c-org" placeholder="Company or institution">
         </div>
-    </section>
+      </div>
+      <div class="form-field">
+        <label for="c-email">Email</label>
+        <input type="email" id="c-email" placeholder="you@organization.com">
+      </div>
+      <div class="form-field">
+        <label for="c-interest">Interest Area</label>
+        <select id="c-interest">
+          <option value="">Select area of interest</option>
+          <option value="integration">API / Integration</option>
+          <option value="enterprise">Enterprise Licensing</option>
+          <option value="federal">Federal Contracting</option>
+          <option value="academic">Academic Research</option>
+          <option value="healthcare">Healthcare Applications</option>
+          <option value="partnership">Strategic Partnership</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" placeholder="Tell us about your needs..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="handleContactSubmit()" style="align-self: flex-start;">Send Message &rarr;</button>
+    </div>
+  </div>
+</section>
 
-    <section id="research" class="research">
-        <div class="container">
-            <h2>Research Foundation</h2>
-            <p class="section-subtitle">
-                Grounded in rigorous mathematical modeling and cross-disciplinary synthesis
-            </p>
+<!-- ═══════════════════ JOIN US ═══════════════════ -->
+<section id="join" class="section section-warm">
+  <div class="section-header fade-in">
+    <div class="section-label">Join ROSE Corp.</div>
+    <h2 class="section-title">We're looking for people who<br>see what others miss.</h2>
+  </div>
 
-            <div class="paper-highlight">
-                <div class="paper-title">
-                    The Decay Rate of Resilience: Exponential Degradation of Human Coherence Under Systemic Misperception
-                </div>
-                <p>
-                    <strong>WP-2026-001 (Revised)</strong> | Christopher MacGregor bin Joseph | February 2026
-                </p>
+  <div class="join-intro fade-in">
+    <p>
+      ROSE Corp. is building translation infrastructure for the next era of synthetic-organic
+      communication. We need talented, creative people who understand that coherence is constructed —
+      and want to build the tools that make construction possible.
+    </p>
+    <p>
+      All positions are 12-month remote engagements with 0.5% equity (non-dilution clause).
+      We're early. We're building something that matters. If you're the kind of person who
+      does their best work when the stakes are real and the canvas is blank — keep reading.
+    </p>
+  </div>
 
-                <div class="equation">
-                    R(t) = N₀e<sup>-λ<sub>eff</sub>×t</sup> + ∫₀<sup>t</sup> μ(s)e<sup>-λ<sub>eff</sub>(t-s)</sup> ds
-                </div>
+  <div class="join-positions fade-in">
+    <div class="position-card">
+      <div class="position-tag">Creative + Technical</div>
+      <div class="position-title">UX Designers</div>
+      <p class="position-desc">Design interfaces for perception systems that have never existed before. Make the invisible visible. Make translation feel natural.</p>
+      <div class="position-terms">
+        <strong>12 months</strong> &middot; Remote<br>
+        <strong>0.5% equity</strong> &middot; Non-dilution clause<br>
+        <strong>Looking for:</strong> Portfolio of unconventional work
+      </div>
+    </div>
 
-                <p>
-                    The complete resilience model incorporating three simultaneous forces: exponential decay from misperception, τ-attenuation from temporal depth anchoring, and restoration from accurate translation events.
-                </p>
+    <div class="position-card">
+      <div class="position-tag">Growth + Strategy</div>
+      <div class="position-title">Business Development</div>
+      <p class="position-desc">Open doors in federal, enterprise, and healthcare markets. Translate Rose Glass value for stakeholders who think in budgets and outcomes.</p>
+      <div class="position-terms">
+        <strong>12 months</strong> &middot; Remote<br>
+        <strong>0.5% equity</strong> &middot; Non-dilution clause<br>
+        <strong>Looking for:</strong> Federal / enterprise network
+      </div>
+    </div>
 
-                <div class="key-insight">
-                    <strong>Core Thesis:</strong> Resilience is not depleted by adversity. It is depleted by <em>misperception</em> of adversity. The decay constant λ is an environmental property, not an individual one.
-                </div>
+    <div class="position-card">
+      <div class="position-tag">Build + Ship</div>
+      <div class="position-title">Creative Technologists</div>
+      <p class="position-desc">Engineers, researchers, builders who see the gap between AI perception and human reality — and want to close it with code that matters.</p>
+      <div class="position-terms">
+        <strong>12 months</strong> &middot; Remote<br>
+        <strong>0.5% equity</strong> &middot; Non-dilution clause<br>
+        <strong>Looking for:</strong> Curiosity over credentials
+      </div>
+    </div>
+  </div>
 
-                <div class="key-insight">
-                    <strong>v2 Innovation:</strong> Temporal depth (τ) formally reduces λ in the decay equation. Deep-time anchoring—geological wisdom, generational narrative, sacred tradition—measurably slows the rate at which misperception destroys coherence.
-                </div>
+  <div class="join-divider"></div>
 
-                <div class="key-insight">
-                    <strong>Restoration Integral:</strong> Every accurate translation event generates a restoration pulse μ(s) that rebuilds what decay destroyed. The intervention question becomes: can μ events be sustained at a rate that exceeds λ<sub>eff</sub>?
-                </div>
-            </div>
+  <div class="join-form fade-in">
+    <h3>Tell us who you are.</h3>
+    <p class="join-form-subtitle">
+      This isn't a traditional application. We want to know how you think,
+      what you've built, and what you see that others don't. Take your time.
+    </p>
+
+    <div class="contact-form" id="join-form-fields">
+      <div class="questionnaire-section">
+        <h4>The Basics</h4>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="j-name">Full Name</label>
+            <input type="text" id="j-name" placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label for="j-email">Email</label>
+            <input type="email" id="j-email" placeholder="you@email.com">
+          </div>
         </div>
-    </section>
-
-    <section id="applications" class="applications">
-        <div class="container">
-            <h2>Applications</h2>
-            <p class="section-subtitle">
-                Translation infrastructure for high-stakes contexts where misperception accelerates harm
-            </p>
-
-            <div class="app-grid">
-                <div class="app-card">
-                    <div class="app-icon">⚖️</div>
-                    <h3>Legal Translation</h3>
-                    <p>
-                        Family courts, custody proceedings, and adversarial contexts where trauma-fragmented testimony is systematically misread as incoherence.
-                    </p>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon">🏥</div>
-                    <h3>Clinical Applications</h3>
-                    <p>
-                        Therapeutic contexts, crisis intervention, and psychiatric intake where appropriate emotional activation is pathologized.
-                    </p>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon">🌍</div>
-                    <h3>Cultural Translation</h3>
-                    <p>
-                        Cross-cultural communication, indigenous knowledge systems, and contexts where f-dimension belonging is labeled dysfunction.
-                    </p>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon">🎓</div>
-                    <h3>Educational Access</h3>
-                    <p>
-                        Academic gatekeeping contexts where ρ-dimension wisdom expressed through story is dismissed as lack of rigor.
-                    </p>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon">💊</div>
-                    <h3>Recovery Systems</h3>
-                    <p>
-                        Addiction, trauma recovery, and rehabilitation contexts where generational cascade dynamics accelerate without intervention.
-                    </p>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon">🤖</div>
-                    <h3>LLM Translation</h3>
-                    <p>
-                        System-prompt-ready protocols that lens any LLM to perceive through the Rose Glass framework—accurate translation at scale.
-                    </p>
-                </div>
-            </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="j-role">Position of Interest</label>
+            <select id="j-role">
+              <option value="">Select position</option>
+              <option value="ux">UX Designer</option>
+              <option value="bizdev">Business Development</option>
+              <option value="tech">Creative Technologist</option>
+              <option value="other">Something else entirely</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="j-location">Location</label>
+            <input type="text" id="j-location" placeholder="City, State / Country">
+          </div>
         </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About ROSE Corp</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        ROSE Corp is a research organization dedicated to developing mathematical frameworks for understanding and measuring human coherence under systemic misperception.
-                    </p>
-                    <p>
-                        Founded on the principle that <strong>coherence is constructed, not discovered</strong>, our work reveals how institutional systems characteristically fail to translate authentic human expression—and provides the infrastructure to correct those failures.
-                    </p>
-                    <p>
-                        The Rose Glass framework emerged through synthetic-organic collaboration: human insight formalized through mathematical rigor, tested against lived experience, and refined through cross-disciplinary synthesis.
-                    </p>
-
-                    <blockquote>
-                        "Coherence is constructed, not discovered."
-                        <div class="author-credit">— Ibn Rushd, adapted</div>
-                    </blockquote>
-                </div>
-
-                <div class="about-highlight">
-                    <h3>Leadership</h3>
-                    <p><strong>Christopher MacGregor bin Joseph</strong><br>
-                    Founder & Principal Researcher</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-light);">
-                        Interdisciplinary researcher at the intersection of mathematical modeling, cultural translation, and resilience architecture. Developer of the Rose Glass framework and the generational cascade resilience model.
-                    </p>
-
-                    <h3 style="margin-top: 2rem;">Organization</h3>
-                    <p><strong>MacGregor Holding Company</strong><br>
-                    Parent Organization</p>
-                </div>
-            </div>
+        <div class="form-field">
+          <label for="j-portfolio">Portfolio / GitHub / LinkedIn</label>
+          <input type="url" id="j-portfolio" placeholder="https://...">
         </div>
-    </section>
+      </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">ROSE Corp</div>
-                <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">
-                    Mathematical frameworks for human coherence translation
-                </p>
-            </div>
-
-            <div class="footer-links">
-                <a href="#framework">Framework</a>
-                <a href="#research">Research</a>
-                <a href="#applications">Applications</a>
-                <a href="https://github.com/GreatPyreneseDad">GitHub</a>
-            </div>
-
-            <div class="copyright">
-                &copy; 2026 ROSE Corp | MacGregor Holding Company. All rights reserved.
-            </div>
+      <div class="questionnaire-section">
+        <h4>How You Think</h4>
+        <div class="form-field">
+          <label for="j-q1">What's the most interesting problem you've worked on, and what made it interesting?</label>
+          <textarea id="j-q1" placeholder="Not what was hardest. What was most interesting."></textarea>
         </div>
-    </footer>
+        <div class="form-field">
+          <label for="j-q2">Rose Glass translates rather than measures. In your field, where have you seen measurement fail and translation succeed?</label>
+          <textarea id="j-q2" placeholder="Specific examples welcome."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="j-q3">What would you build first?</label>
+          <textarea id="j-q3" placeholder="If you had access to the full Rose Glass ecosystem, what would you ship in the first 30 days?"></textarea>
+        </div>
+      </div>
+
+      <div class="questionnaire-section">
+        <h4>The Terms</h4>
+        <div class="form-field">
+          <label for="j-commitment">Can you commit to a 12-month remote engagement?</label>
+          <select id="j-commitment">
+            <option value="">Select</option>
+            <option value="yes-full">Yes — full time</option>
+            <option value="yes-part">Yes — but need to discuss scope</option>
+            <option value="shorter">I'd need a shorter commitment</option>
+            <option value="discuss">Let's discuss</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="j-equity">Are you comfortable with equity-based compensation (0.5%, non-dilution)?</label>
+          <select id="j-equity">
+            <option value="">Select</option>
+            <option value="yes">Yes, I understand the terms</option>
+            <option value="questions">Yes, but I have questions</option>
+            <option value="discuss">Need to discuss further</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="questionnaire-section">
+        <h4>Anything Else</h4>
+        <div class="form-field">
+          <label for="j-else">Is there anything we should know that the questions above didn't cover?</label>
+          <textarea id="j-else" placeholder="Optional. But we like surprises."></textarea>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="handleJoinSubmit()" style="align-self: flex-start;">Submit Application &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">ROSE Corp.</span>
+      <span class="footer-principle">"Coherence is constructed, not discovered."</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://github.com/GreatPyreneseDad" target="_blank">GitHub</a>
+      <a href="#contact">Contact</a>
+      <a href="#join">Join Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025–2026 MacGregor Holding Company. All rights reserved.</span>
+    <span class="footer-sdvosb">SERVICE-DISABLED VETERAN-OWNED SMALL BUSINESS</span>
+  </div>
+</footer>
+
+<script>
+// ─── NAV SCROLL ───
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── FADE IN OBSERVER ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ─── FORM HANDLERS ───
+function handleContactSubmit() {
+  const name = document.getElementById('c-name').value;
+  const email = document.getElementById('c-email').value;
+  const org = document.getElementById('c-org').value;
+  const interest = document.getElementById('c-interest').value;
+  const message = document.getElementById('c-message').value;
+
+  if (!name || !email) {
+    alert('Please fill in your name and email.');
+    return;
+  }
+
+  // Construct mailto
+  const subject = encodeURIComponent(`ROSE Corp Inquiry — ${interest || 'General'} — ${org || name}`);
+  const body = encodeURIComponent(`Name: ${name}\nOrganization: ${org}\nEmail: ${email}\nInterest: ${interest}\n\n${message}`);
+  window.location.href = `mailto:chris@macgregorholding.com?subject=${subject}&body=${body}`;
+}
+
+function handleJoinSubmit() {
+  const name = document.getElementById('j-name').value;
+  const email = document.getElementById('j-email').value;
+  const role = document.getElementById('j-role').value;
+  const location = document.getElementById('j-location').value;
+  const portfolio = document.getElementById('j-portfolio').value;
+  const q1 = document.getElementById('j-q1').value;
+  const q2 = document.getElementById('j-q2').value;
+  const q3 = document.getElementById('j-q3').value;
+  const commitment = document.getElementById('j-commitment').value;
+  const equity = document.getElementById('j-equity').value;
+  const extra = document.getElementById('j-else').value;
+
+  if (!name || !email || !role) {
+    alert('Please fill in your name, email, and position of interest.');
+    return;
+  }
+
+  const subject = encodeURIComponent(`ROSE Corp Application — ${role} — ${name}`);
+  const body = encodeURIComponent(
+    `APPLICATION: ROSE Corp.\n` +
+    `${'─'.repeat(40)}\n\n` +
+    `Name: ${name}\nEmail: ${email}\nPosition: ${role}\nLocation: ${location}\nPortfolio: ${portfolio}\n\n` +
+    `QUESTION 1: Most interesting problem\n${q1}\n\n` +
+    `QUESTION 2: Measurement vs. translation\n${q2}\n\n` +
+    `QUESTION 3: What would you build first?\n${q3}\n\n` +
+    `COMMITMENT: ${commitment}\nEQUITY TERMS: ${equity}\n\n` +
+    `ADDITIONAL:\n${extra}`
+  );
+  window.location.href = `mailto:chris@macgregorholding.com?subject=${subject}&body=${body}`;
+}
+</script>
+
 </body>
 </html>
