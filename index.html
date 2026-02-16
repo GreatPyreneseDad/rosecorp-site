@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROSE Corp - Resilience Research & Translation Infrastructure</title>
+    <meta name="description" content="ROSE Corp develops mathematical frameworks for understanding and measuring human coherence under systemic misperception. Home of the Rose Glass translation lens.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #FF6B9D;
+            --rose-dark: #E5527D;
+            --charcoal: #2C3E50;
+            --charcoal-light: #34495E;
+            --cream: #FFF8F0;
+            --gold: #D4AF37;
+            --text-dark: #1A1A1A;
+            --text-light: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--charcoal);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rose);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: var(--rose);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--rose);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--rose-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        /* Main Content */
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        /* Framework Section */
+        .framework {
+            background: white;
+        }
+
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .dimension-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--rose);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dimension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .dimension-symbol {
+            font-size: 2.5rem;
+            color: var(--rose);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .dimension-name {
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .dimension-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Research Section */
+        .research {
+            background: var(--charcoal);
+            color: white;
+        }
+
+        .research h2 {
+            color: white;
+        }
+
+        .research .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .paper-highlight {
+            background: var(--charcoal-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .paper-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .equation {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .key-insight {
+            margin-top: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--rose);
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+        }
+
+        /* Applications */
+        .applications {
+            background: white;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .app-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .app-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* About */
+        .about {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-highlight {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--rose);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--charcoal);
+            margin: 2rem 0;
+            padding-left: 2rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .author-credit {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .dimensions-grid,
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">ROSE Corp</div>
+            <ul class="nav-links">
+                <li><a href="#framework">Framework</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>The <span class="highlight">Rose Glass</span></h1>
+            <p>A mathematical framework for perceiving human coherence through systemic misperception</p>
+            <a href="#framework" class="cta-button">Explore the Framework</a>
+        </div>
+    </section>
+
+    <section id="framework" class="framework">
+        <div class="container">
+            <h2>The Four Dimensions of Coherence</h2>
+            <p class="section-subtitle">
+                The Rose Glass reveals four wavelengths of human expression that traditional measurement misses
+            </p>
+
+            <div class="dimensions-grid">
+                <div class="dimension-card">
+                    <div class="dimension-symbol">Ψ</div>
+                    <div class="dimension-name">Psi — Internal Consistency</div>
+                    <p class="dimension-description">
+                        Harmonic alignment of thoughts. Not "logic" in the academic sense, but the way ideas resonate or clash—including under trauma and pressure.
+                    </p>
+                </div>
+
+                <div class="dimension-card">
+                    <div class="dimension-symbol">ρ</div>
+                    <div class="dimension-name">Rho — Accumulated Wisdom</div>
+                    <p class="dimension-description">
+                        Depth of integrated experience. Street knowledge counts. Survival knowledge counts. Non-academic wisdom carries equivalent depth.
+                    </p>
+                </div>
+
+                <div class="dimension-card">
+                    <div class="dimension-symbol">q</div>
+                    <div class="dimension-name">Q — Moral Activation Energy</div>
+                    <p class="dimension-description">
+                        Heat and urgency of values in motion. Biologically optimized to prevent extremism. Appropriate emotional activation, not pathology.
+                    </p>
+                </div>
+
+                <div class="dimension-card">
+                    <div class="dimension-symbol">f</div>
+                    <div class="dimension-name">F — Social Belonging Architecture</div>
+                    <p class="dimension-description">
+                        How individual expression connects to collective structure. Extended family is not codependency. Community identity is not dysfunction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="research">
+        <div class="container">
+            <h2>Research Foundation</h2>
+            <p class="section-subtitle">
+                Grounded in rigorous mathematical modeling and cross-disciplinary synthesis
+            </p>
+
+            <div class="paper-highlight">
+                <div class="paper-title">
+                    The Decay Rate of Resilience: Exponential Degradation of Human Coherence Under Systemic Misperception
+                </div>
+                <p>
+                    <strong>WP-2026-001 (Revised)</strong> | Christopher MacGregor bin Joseph | February 2026
+                </p>
+
+                <div class="equation">
+                    R(t) = N₀e<sup>-λ<sub>eff</sub>×t</sup> + ∫₀<sup>t</sup> μ(s)e<sup>-λ<sub>eff</sub>(t-s)</sup> ds
+                </div>
+
+                <p>
+                    The complete resilience model incorporating three simultaneous forces: exponential decay from misperception, τ-attenuation from temporal depth anchoring, and restoration from accurate translation events.
+                </p>
+
+                <div class="key-insight">
+                    <strong>Core Thesis:</strong> Resilience is not depleted by adversity. It is depleted by <em>misperception</em> of adversity. The decay constant λ is an environmental property, not an individual one.
+                </div>
+
+                <div class="key-insight">
+                    <strong>v2 Innovation:</strong> Temporal depth (τ) formally reduces λ in the decay equation. Deep-time anchoring—geological wisdom, generational narrative, sacred tradition—measurably slows the rate at which misperception destroys coherence.
+                </div>
+
+                <div class="key-insight">
+                    <strong>Restoration Integral:</strong> Every accurate translation event generates a restoration pulse μ(s) that rebuilds what decay destroyed. The intervention question becomes: can μ events be sustained at a rate that exceeds λ<sub>eff</sub>?
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="applications" class="applications">
+        <div class="container">
+            <h2>Applications</h2>
+            <p class="section-subtitle">
+                Translation infrastructure for high-stakes contexts where misperception accelerates harm
+            </p>
+
+            <div class="app-grid">
+                <div class="app-card">
+                    <div class="app-icon">⚖️</div>
+                    <h3>Legal Translation</h3>
+                    <p>
+                        Family courts, custody proceedings, and adversarial contexts where trauma-fragmented testimony is systematically misread as incoherence.
+                    </p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">🏥</div>
+                    <h3>Clinical Applications</h3>
+                    <p>
+                        Therapeutic contexts, crisis intervention, and psychiatric intake where appropriate emotional activation is pathologized.
+                    </p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">🌍</div>
+                    <h3>Cultural Translation</h3>
+                    <p>
+                        Cross-cultural communication, indigenous knowledge systems, and contexts where f-dimension belonging is labeled dysfunction.
+                    </p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">🎓</div>
+                    <h3>Educational Access</h3>
+                    <p>
+                        Academic gatekeeping contexts where ρ-dimension wisdom expressed through story is dismissed as lack of rigor.
+                    </p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">💊</div>
+                    <h3>Recovery Systems</h3>
+                    <p>
+                        Addiction, trauma recovery, and rehabilitation contexts where generational cascade dynamics accelerate without intervention.
+                    </p>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">🤖</div>
+                    <h3>LLM Translation</h3>
+                    <p>
+                        System-prompt-ready protocols that lens any LLM to perceive through the Rose Glass framework—accurate translation at scale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About ROSE Corp</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        ROSE Corp is a research organization dedicated to developing mathematical frameworks for understanding and measuring human coherence under systemic misperception.
+                    </p>
+                    <p>
+                        Founded on the principle that <strong>coherence is constructed, not discovered</strong>, our work reveals how institutional systems characteristically fail to translate authentic human expression—and provides the infrastructure to correct those failures.
+                    </p>
+                    <p>
+                        The Rose Glass framework emerged through synthetic-organic collaboration: human insight formalized through mathematical rigor, tested against lived experience, and refined through cross-disciplinary synthesis.
+                    </p>
+
+                    <blockquote>
+                        "Coherence is constructed, not discovered."
+                        <div class="author-credit">— Ibn Rushd, adapted</div>
+                    </blockquote>
+                </div>
+
+                <div class="about-highlight">
+                    <h3>Leadership</h3>
+                    <p><strong>Christopher MacGregor bin Joseph</strong><br>
+                    Founder & Principal Researcher</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-light);">
+                        Interdisciplinary researcher at the intersection of mathematical modeling, cultural translation, and resilience architecture. Developer of the Rose Glass framework and the generational cascade resilience model.
+                    </p>
+
+                    <h3 style="margin-top: 2rem;">Organization</h3>
+                    <p><strong>MacGregor Holding Company</strong><br>
+                    Parent Organization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">ROSE Corp</div>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">
+                    Mathematical frameworks for human coherence translation
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#framework">Framework</a>
+                <a href="#research">Research</a>
+                <a href="#applications">Applications</a>
+                <a href="https://github.com/GreatPyreneseDad">GitHub</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 ROSE Corp | MacGregor Holding Company. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
