@@ -559,6 +559,81 @@ nav.scrolled {
   line-height: 1.6;
 }
 
+/* ─── LIVE PLATFORMS ─── */
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.platform-card {
+  padding: 2.2rem 2rem;
+  border: 1px solid rgba(140, 133, 120, 0.12);
+  border-radius: 6px;
+  background: white;
+  transition: all 0.4s;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--rose);
+  transition: width 0.4s;
+}
+
+.platform-card:hover::before { width: 100%; }
+.platform-card:hover { box-shadow: 0 8px 40px rgba(26, 25, 22, 0.07); transform: translateY(-3px); }
+
+.platform-domain {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--rose);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+
+.platform-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.platform-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.platform-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--jade);
+  background: rgba(74, 103, 65, 0.08);
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+@media (max-width: 1024px) {
+  .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .platforms-grid { grid-template-columns: 1fr; }
+}
+
 /* ─── GITHUB / REPOS ─── */
 .repos-grid {
   display: grid;
@@ -975,6 +1050,7 @@ footer {
     <li><a href="#framework">Framework</a></li>
     <li><a href="#tools">Tools & API</a></li>
     <li><a href="#applications">Applications</a></li>
+    <li><a href="#platforms">Platforms</a></li>
     <li><a href="#repos">GitHub</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#join" class="nav-cta">Join Us</a></li>
@@ -1158,6 +1234,59 @@ footer {
       <div class="app-name">Enterprise CRM</div>
       <p class="app-desc">Salesforce integration, lead coherence scoring, stakeholder pattern translation. Cultural bias mitigation for corporate AI.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ LIVE PLATFORMS ═══════════════════ -->
+<section id="platforms" class="section section-warm">
+  <div class="section-header fade-in">
+    <div class="section-label">Live Platforms</div>
+    <h2 class="section-title">In production.<br>Translation at work.</h2>
+    <p class="section-subtitle">Every surface is a different application of the same underlying principle: carry meaning across the gap without losing it.</p>
+  </div>
+
+  <div class="platforms-grid">
+    <a href="https://roseglass.app" target="_blank" class="platform-card fade-in">
+      <div class="platform-domain">roseglass.app</div>
+      <div class="platform-name">Rose Glass</div>
+      <p class="platform-desc">The primary framework interface. Six-dimension translation with cultural lens calibrations, Veritas authenticity detection, and the coherence equation.</p>
+      <span class="platform-tag">Core Framework</span>
+    </a>
+
+    <a href="https://roseglass.online" target="_blank" class="platform-card fade-in">
+      <div class="platform-domain">roseglass.online</div>
+      <div class="platform-name">Rose Glass Dating</div>
+      <p class="platform-desc">Translation, not judgment. A dating surface that helps people see each other through cultural and neurological difference rather than scoring compatibility.</p>
+      <span class="platform-tag">Consumer</span>
+    </a>
+
+    <a href="https://roseglassdata.com" target="_blank" class="platform-card fade-in">
+      <div class="platform-domain">roseglassdata.com</div>
+      <div class="platform-name">Rose Glass Data</div>
+      <p class="platform-desc">Semantic data profiling. Upload any dataset and see what it measures, what it avoids, and what inference constraints live in its collection architecture.</p>
+      <span class="platform-tag">Data Intelligence</span>
+    </a>
+
+    <a href="https://saidwhat.app" target="_blank" class="platform-card fade-in">
+      <div class="platform-domain">saidwhat.app</div>
+      <div class="platform-name">Said What?</div>
+      <p class="platform-desc">News analysis through the Interference Polygon. Multiple sources, dimensional scoring, and the story beneath the stories — where sources diverge, not where they agree.</p>
+      <span class="platform-tag">News Analysis</span>
+    </a>
+
+    <a href="https://chacha.cafe" target="_blank" class="platform-card fade-in">
+      <div class="platform-domain">chacha.cafe</div>
+      <div class="platform-name">ChaCha Café</div>
+      <p class="platform-desc">AI-powered beverage intelligence. Tea, coffee, wine, beer — curated through taste translation and affiliate commerce. The lightest surface, the widest door.</p>
+      <span class="platform-tag">Beverage Intelligence</span>
+    </a>
+
+    <a href="https://meridianlnc.com" target="_blank" class="platform-card fade-in">
+      <div class="platform-domain">meridianlnc.com</div>
+      <div class="platform-name">Meridian LNC</div>
+      <p class="platform-desc">Legal nurse consulting platform. Medical-legal translation where clinical complexity meets litigation — bridging the gap between care and case.</p>
+      <span class="platform-tag">Legal Medical</span>
+    </a>
   </div>
 </section>
 
