@@ -58,6 +58,92 @@ body::before {
 h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
 .mono { font-family: 'JetBrains Mono', monospace; }
 
+/* ─── SITE BANNER ─── */
+.site-banner {
+  background: var(--granite);
+  border-bottom: 2px solid var(--rose);
+  padding: 0.9rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 999;
+  margin-top: 65px; /* offset for fixed nav */
+}
+
+.site-banner-text {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.site-banner-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose-glow);
+  white-space: nowrap;
+}
+
+.site-banner-copy {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--cream);
+  font-weight: 300;
+}
+
+.site-banner-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--rose-glow);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.site-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background: var(--rose);
+  color: white;
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.site-banner-btn:hover {
+  background: var(--rose-deep);
+  transform: translateY(-1px);
+}
+
+.site-banner-btn .arrow {
+  transition: transform 0.2s;
+}
+
+.site-banner-btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .site-banner {
+    padding: 0.9rem 1.5rem;
+    margin-top: 57px;
+  }
+  .site-banner-copy { font-size: 1rem; }
+}
+
 /* ─── NAVIGATION ─── */
 nav {
   position: fixed;
@@ -185,7 +271,7 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 8rem 3rem 4rem;
+  padding: 5rem 3rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -1014,7 +1100,7 @@ footer {
   }
 
   .section { padding: 4rem 1.5rem; }
-  .hero { padding: 7rem 1.5rem 3rem; }
+  .hero { padding: 4rem 1.5rem 3rem; }
   .philosophy-grid { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr; }
   .repos-grid { grid-template-columns: 1fr; }
@@ -1056,6 +1142,18 @@ footer {
     <li><a href="#join" class="nav-cta">Join Us</a></li>
   </ul>
 </nav>
+
+<!-- ═══════════════════ SITE BANNER ═══════════════════ -->
+<div class="site-banner">
+  <div class="site-banner-text">
+    <span class="site-banner-eyebrow">New ·</span>
+    <span class="site-banner-copy">We build AI-integrated websites for Northern Michigan businesses.</span>
+    <span class="site-banner-price">$499 all-in &middot; 3 months maintenance included</span>
+  </div>
+  <a href="websites.html" class="site-banner-btn">
+    See what we build <span class="arrow">&rarr;</span>
+  </a>
+</div>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <section class="hero">
@@ -1220,35 +1318,30 @@ footer {
       <p class="product-desc">The translation engine. Four-dimensional perception with biological optimization, cultural calibrations, and Veritas authenticity detection. Python 3.10+.</p>
       <a href="https://github.com/GreatPyreneseDad/rose-glass" class="product-link" target="_blank">View repository &rarr;</a>
     </div>
-
     <div class="product-card fade-in">
       <div class="product-icon">🪞</div>
       <div class="product-name">Rose Looking Glass</div>
       <p class="product-desc">API-ready multi-lens perception. Extended dimensions (τ, λ), gradient tracking, real-time streaming, and neurodivergent calibrations.</p>
       <a href="https://github.com/GreatPyreneseDad/rose-looking-glass" class="product-link" target="_blank">View repository &rarr;</a>
     </div>
-
     <div class="product-card fade-in">
       <div class="product-icon">⚗️</div>
       <div class="product-name">Data Enzymatics</div>
       <p class="product-desc">Metabolic counter-architecture for information processing. Natural activation curves, substrate saturation, and decay functions.</p>
       <a href="https://github.com/GreatPyreneseDad" class="product-link" target="_blank">View repository &rarr;</a>
     </div>
-
     <div class="product-card fade-in">
       <div class="product-icon">🦑</div>
       <div class="product-name">CERATA</div>
       <p class="product-desc">Self-evolving code integration framework. Hunt, consume, and metabolize external codebases with Rose Glass quality perception.</p>
       <a href="https://github.com/GreatPyreneseDad" class="product-link" target="_blank">View repository &rarr;</a>
     </div>
-
     <div class="product-card fade-in">
       <div class="product-icon">🏥</div>
       <div class="product-name">MedDevice Sales MCP</div>
       <p class="product-desc">MCP Server for Salesforce integration in medical device sales. Clinical urgency, procurement cycles, and stakeholder pattern translation.</p>
       <a href="https://github.com/GreatPyreneseDad/rose-glass-salesforce" class="product-link" target="_blank">View repository &rarr;</a>
     </div>
-
     <div class="product-card fade-in">
       <div class="product-icon">📜</div>
       <div class="product-name">LLM Lens v2</div>
@@ -1403,16 +1496,8 @@ footer {
   </div>
 
   <div class="join-intro fade-in">
-    <p>
-      ROSE Corp. is building translation infrastructure for the next era of synthetic-organic
-      communication. We need talented, creative people who understand that coherence is constructed —
-      and want to build the tools that make construction possible.
-    </p>
-    <p>
-      All positions are 12-month remote engagements with 0.5% equity (non-dilution clause).
-      We're early. We're building something that matters. If you're the kind of person who
-      does their best work when the stakes are real and the canvas is blank — keep reading.
-    </p>
+    <p>ROSE Corp. is building translation infrastructure for the next era of synthetic-organic communication. We need talented, creative people who understand that coherence is constructed — and want to build the tools that make construction possible.</p>
+    <p>All positions are 12-month remote engagements with 0.5% equity (non-dilution clause). We're early. We're building something that matters. If you're the kind of person who does their best work when the stakes are real and the canvas is blank — keep reading.</p>
   </div>
 
   <div class="join-positions fade-in">
@@ -1420,33 +1505,19 @@ footer {
       <div class="position-tag">Creative + Technical</div>
       <div class="position-title">UX Designers</div>
       <p class="position-desc">Design interfaces for perception systems that have never existed before. Make the invisible visible. Make translation feel natural.</p>
-      <div class="position-terms">
-        <strong>12 months</strong> &middot; Remote<br>
-        <strong>0.5% equity</strong> &middot; Non-dilution clause<br>
-        <strong>Looking for:</strong> Portfolio of unconventional work
-      </div>
+      <div class="position-terms"><strong>12 months</strong> &middot; Remote<br><strong>0.5% equity</strong> &middot; Non-dilution clause<br><strong>Looking for:</strong> Portfolio of unconventional work</div>
     </div>
-
     <div class="position-card">
       <div class="position-tag">Growth + Strategy</div>
       <div class="position-title">Business Development</div>
       <p class="position-desc">Open doors in federal, enterprise, and healthcare markets. Translate Rose Glass value for stakeholders who think in budgets and outcomes.</p>
-      <div class="position-terms">
-        <strong>12 months</strong> &middot; Remote<br>
-        <strong>0.5% equity</strong> &middot; Non-dilution clause<br>
-        <strong>Looking for:</strong> Federal / enterprise network
-      </div>
+      <div class="position-terms"><strong>12 months</strong> &middot; Remote<br><strong>0.5% equity</strong> &middot; Non-dilution clause<br><strong>Looking for:</strong> Federal / enterprise network</div>
     </div>
-
     <div class="position-card">
       <div class="position-tag">Build + Ship</div>
       <div class="position-title">Creative Technologists</div>
       <p class="position-desc">Engineers, researchers, builders who see the gap between AI perception and human reality — and want to close it with code that matters.</p>
-      <div class="position-terms">
-        <strong>12 months</strong> &middot; Remote<br>
-        <strong>0.5% equity</strong> &middot; Non-dilution clause<br>
-        <strong>Looking for:</strong> Curiosity over credentials
-      </div>
+      <div class="position-terms"><strong>12 months</strong> &middot; Remote<br><strong>0.5% equity</strong> &middot; Non-dilution clause<br><strong>Looking for:</strong> Curiosity over credentials</div>
     </div>
   </div>
 
@@ -1454,23 +1525,14 @@ footer {
 
   <div class="join-form fade-in">
     <h3>Tell us who you are.</h3>
-    <p class="join-form-subtitle">
-      This isn't a traditional application. We want to know how you think,
-      what you've built, and what you see that others don't. Take your time.
-    </p>
+    <p class="join-form-subtitle">This isn't a traditional application. We want to know how you think, what you've built, and what you see that others don't.</p>
 
     <div class="contact-form" id="join-form-fields">
       <div class="questionnaire-section">
         <h4>The Basics</h4>
         <div class="form-row">
-          <div class="form-field">
-            <label for="j-name">Full Name</label>
-            <input type="text" id="j-name" placeholder="Your name">
-          </div>
-          <div class="form-field">
-            <label for="j-email">Email</label>
-            <input type="email" id="j-email" placeholder="you@email.com">
-          </div>
+          <div class="form-field"><label for="j-name">Full Name</label><input type="text" id="j-name" placeholder="Your name"></div>
+          <div class="form-field"><label for="j-email">Email</label><input type="email" id="j-email" placeholder="you@email.com"></div>
         </div>
         <div class="form-row">
           <div class="form-field">
@@ -1483,31 +1545,16 @@ footer {
               <option value="other">Something else entirely</option>
             </select>
           </div>
-          <div class="form-field">
-            <label for="j-location">Location</label>
-            <input type="text" id="j-location" placeholder="City, State / Country">
-          </div>
+          <div class="form-field"><label for="j-location">Location</label><input type="text" id="j-location" placeholder="City, State / Country"></div>
         </div>
-        <div class="form-field">
-          <label for="j-portfolio">Portfolio / GitHub / LinkedIn</label>
-          <input type="url" id="j-portfolio" placeholder="https://...">
-        </div>
+        <div class="form-field"><label for="j-portfolio">Portfolio / GitHub / LinkedIn</label><input type="url" id="j-portfolio" placeholder="https://..."></div>
       </div>
 
       <div class="questionnaire-section">
         <h4>How You Think</h4>
-        <div class="form-field">
-          <label for="j-q1">What's the most interesting problem you've worked on, and what made it interesting?</label>
-          <textarea id="j-q1" placeholder="Not what was hardest. What was most interesting."></textarea>
-        </div>
-        <div class="form-field">
-          <label for="j-q2">Rose Glass translates rather than measures. In your field, where have you seen measurement fail and translation succeed?</label>
-          <textarea id="j-q2" placeholder="Specific examples welcome."></textarea>
-        </div>
-        <div class="form-field">
-          <label for="j-q3">What would you build first?</label>
-          <textarea id="j-q3" placeholder="If you had access to the full Rose Glass ecosystem, what would you ship in the first 30 days?"></textarea>
-        </div>
+        <div class="form-field"><label for="j-q1">What's the most interesting problem you've worked on, and what made it interesting?</label><textarea id="j-q1" placeholder="Not what was hardest. What was most interesting."></textarea></div>
+        <div class="form-field"><label for="j-q2">Rose Glass translates rather than measures. In your field, where have you seen measurement fail and translation succeed?</label><textarea id="j-q2" placeholder="Specific examples welcome."></textarea></div>
+        <div class="form-field"><label for="j-q3">What would you build first?</label><textarea id="j-q3" placeholder="If you had access to the full Rose Glass ecosystem, what would you ship in the first 30 days?"></textarea></div>
       </div>
 
       <div class="questionnaire-section">
@@ -1535,10 +1582,7 @@ footer {
 
       <div class="questionnaire-section">
         <h4>Anything Else</h4>
-        <div class="form-field">
-          <label for="j-else">Is there anything we should know that the questions above didn't cover?</label>
-          <textarea id="j-else" placeholder="Optional. But we like surprises."></textarea>
-        </div>
+        <div class="form-field"><label for="j-else">Is there anything we should know that the questions above didn't cover?</label><textarea id="j-else" placeholder="Optional. But we like surprises."></textarea></div>
       </div>
 
       <button class="btn-primary" onclick="handleJoinSubmit()" style="align-self: flex-start;">Submit Application &rarr;</button>
@@ -1557,6 +1601,7 @@ footer {
       <a href="https://github.com/GreatPyreneseDad" target="_blank">GitHub</a>
       <a href="#contact">Contact</a>
       <a href="#join">Join Us</a>
+      <a href="websites.html">Websites</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1566,13 +1611,11 @@ footer {
 </footer>
 
 <script>
-// ─── NAV SCROLL ───
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// ─── FADE IN OBSERVER ───
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -1584,20 +1627,13 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// ─── FORM HANDLERS ───
 function handleContactSubmit() {
   const name = document.getElementById('c-name').value;
   const email = document.getElementById('c-email').value;
   const org = document.getElementById('c-org').value;
   const interest = document.getElementById('c-interest').value;
   const message = document.getElementById('c-message').value;
-
-  if (!name || !email) {
-    alert('Please fill in your name and email.');
-    return;
-  }
-
-  // Construct mailto
+  if (!name || !email) { alert('Please fill in your name and email.'); return; }
   const subject = encodeURIComponent(`ROSE Corp Inquiry — ${interest || 'General'} — ${org || name}`);
   const body = encodeURIComponent(`Name: ${name}\nOrganization: ${org}\nEmail: ${email}\nInterest: ${interest}\n\n${message}`);
   window.location.href = `mailto:chris@macgregorholding.com?subject=${subject}&body=${body}`;
@@ -1607,30 +1643,13 @@ function handleJoinSubmit() {
   const name = document.getElementById('j-name').value;
   const email = document.getElementById('j-email').value;
   const role = document.getElementById('j-role').value;
-  const location = document.getElementById('j-location').value;
-  const portfolio = document.getElementById('j-portfolio').value;
-  const q1 = document.getElementById('j-q1').value;
-  const q2 = document.getElementById('j-q2').value;
-  const q3 = document.getElementById('j-q3').value;
-  const commitment = document.getElementById('j-commitment').value;
-  const equity = document.getElementById('j-equity').value;
-  const extra = document.getElementById('j-else').value;
-
-  if (!name || !email || !role) {
-    alert('Please fill in your name, email, and position of interest.');
-    return;
-  }
-
+  if (!name || !email || !role) { alert('Please fill in your name, email, and position of interest.'); return; }
   const subject = encodeURIComponent(`ROSE Corp Application — ${role} — ${name}`);
   const body = encodeURIComponent(
-    `APPLICATION: ROSE Corp.\n` +
-    `${'─'.repeat(40)}\n\n` +
-    `Name: ${name}\nEmail: ${email}\nPosition: ${role}\nLocation: ${location}\nPortfolio: ${portfolio}\n\n` +
-    `QUESTION 1: Most interesting problem\n${q1}\n\n` +
-    `QUESTION 2: Measurement vs. translation\n${q2}\n\n` +
-    `QUESTION 3: What would you build first?\n${q3}\n\n` +
-    `COMMITMENT: ${commitment}\nEQUITY TERMS: ${equity}\n\n` +
-    `ADDITIONAL:\n${extra}`
+    `APPLICATION: ROSE Corp.\n${'─'.repeat(40)}\n\n` +
+    `Name: ${name}\nEmail: ${email}\nPosition: ${role}\nLocation: ${document.getElementById('j-location').value}\nPortfolio: ${document.getElementById('j-portfolio').value}\n\n` +
+    `Q1: ${document.getElementById('j-q1').value}\n\nQ2: ${document.getElementById('j-q2').value}\n\nQ3: ${document.getElementById('j-q3').value}\n\n` +
+    `Commitment: ${document.getElementById('j-commitment').value}\nEquity: ${document.getElementById('j-equity').value}\n\nAdditional: ${document.getElementById('j-else').value}`
   );
   window.location.href = `mailto:chris@macgregorholding.com?subject=${subject}&body=${body}`;
 }
