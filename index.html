@@ -3,6 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ROSE Corp (Rose Glass Corp) - SDVOSB in Northern Michigan. AI-powered analysis, data intelligence, and innovative solutions for businesses.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="ROSE Corp — Rose Glass Corp | Northern Michigan">
+<meta property="og:description" content="Service-Disabled Veteran-Owned Small Business. AI analysis, data intelligence, and innovative digital solutions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roseglass.dev">
+<meta property="og:image" content="https://roseglass.dev/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ROSE Corp",
+  "alternateName": "Rose Glass Corp",
+  "url": "https://roseglass.dev",
+  "description": "Service-Disabled Veteran-Owned Small Business (SDVOSB) in Northern Michigan providing AI-powered analysis, data intelligence, and innovative digital solutions.",
+  "sameAs": [
+    "https://roseglass.app",
+    "https://roseglassdata.com",
+    "https://roseglass.online",
+    "https://jadehandforward.com"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Michigan",
+    "addressCountry": "US"
+  },
+  "foundingDate": "2024"
+}
+</script>
 <title>ROSE Corp. — Recognition Of Synthetic-organic Expression</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -1627,31 +1656,120 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-function handleContactSubmit() {
-  const name = document.getElementById('c-name').value;
-  const email = document.getElementById('c-email').value;
-  const org = document.getElementById('c-org').value;
+// Supabase configuration
+const SUPABASE_URL = 'https://nanjrgyjbvhbgibpblfy.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hbmpyZ3lqYnZoYmdpYnBibGZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzA0MzUsImV4cCI6MjA4NzE0NjQzNX0.C9mJxaVPZ9TT91IvbadBX8ZPj_zIN0ncewkFSyHcYcs';
+
+async function handleContactSubmit() {
+  const name = document.getElementById('c-name').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  const org = document.getElementById('c-org').value.trim();
   const interest = document.getElementById('c-interest').value;
-  const message = document.getElementById('c-message').value;
-  if (!name || !email) { alert('Please fill in your name and email.'); return; }
-  const subject = encodeURIComponent(`ROSE Corp Inquiry — ${interest || 'General'} — ${org || name}`);
-  const body = encodeURIComponent(`Name: ${name}\nOrganization: ${org}\nEmail: ${email}\nInterest: ${interest}\n\n${message}`);
-  window.location.href = `mailto:chris@macgregorholding.com?subject=${subject}&body=${body}`;
+  const message = document.getElementById('c-message').value.trim();
+
+  if (!name || !email) {
+    alert('Please fill in your name and email.');
+    return;
+  }
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/rose_corp_inquiries`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': `Bearer ${SUPABASE_ANON}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        organization: org || null,
+        interest_area: interest || null,
+        message: message || null,
+        source: 'roseglass.dev',
+        submitted_at: new Date().toISOString()
+      })
+    });
+
+    if (response.ok) {
+      alert('Thank you! We received your inquiry and will be in touch within one business day.');
+      document.getElementById('c-name').value = '';
+      document.getElementById('c-email').value = '';
+      document.getElementById('c-org').value = '';
+      document.getElementById('c-interest').value = '';
+      document.getElementById('c-message').value = '';
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (error) {
+    alert('There was an issue submitting your form. Please email chris@macgregorholding.com directly. Sorry!');
+  }
 }
 
-function handleJoinSubmit() {
-  const name = document.getElementById('j-name').value;
-  const email = document.getElementById('j-email').value;
+async function handleJoinSubmit() {
+  const name = document.getElementById('j-name').value.trim();
+  const email = document.getElementById('j-email').value.trim();
   const role = document.getElementById('j-role').value;
-  if (!name || !email || !role) { alert('Please fill in your name, email, and position of interest.'); return; }
-  const subject = encodeURIComponent(`ROSE Corp Application — ${role} — ${name}`);
-  const body = encodeURIComponent(
-    `APPLICATION: ROSE Corp.\n${'─'.repeat(40)}\n\n` +
-    `Name: ${name}\nEmail: ${email}\nPosition: ${role}\nLocation: ${document.getElementById('j-location').value}\nPortfolio: ${document.getElementById('j-portfolio').value}\n\n` +
-    `Q1: ${document.getElementById('j-q1').value}\n\nQ2: ${document.getElementById('j-q2').value}\n\nQ3: ${document.getElementById('j-q3').value}\n\n` +
-    `Commitment: ${document.getElementById('j-commitment').value}\nEquity: ${document.getElementById('j-equity').value}\n\nAdditional: ${document.getElementById('j-else').value}`
-  );
-  window.location.href = `mailto:chris@macgregorholding.com?subject=${subject}&body=${body}`;
+  const location = document.getElementById('j-location').value.trim();
+  const portfolio = document.getElementById('j-portfolio').value.trim();
+  const q1 = document.getElementById('j-q1').value.trim();
+  const q2 = document.getElementById('j-q2').value.trim();
+  const q3 = document.getElementById('j-q3').value.trim();
+  const commitment = document.getElementById('j-commitment').value;
+  const equity = document.getElementById('j-equity').value;
+  const additional = document.getElementById('j-else').value.trim();
+
+  if (!name || !email || !role) {
+    alert('Please fill in your name, email, and position of interest.');
+    return;
+  }
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/rose_corp_applications`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': `Bearer ${SUPABASE_ANON}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        position: role,
+        location: location || null,
+        portfolio: portfolio || null,
+        question_interesting_problem: q1 || null,
+        question_translation_success: q2 || null,
+        question_build_first: q3 || null,
+        commitment: commitment || null,
+        equity_discussion: equity || null,
+        additional_notes: additional || null,
+        source: 'roseglass.dev',
+        submitted_at: new Date().toISOString()
+      })
+    });
+
+    if (response.ok) {
+      alert('Thank you for your application! We review every submission carefully and will be in touch soon.');
+      document.getElementById('j-name').value = '';
+      document.getElementById('j-email').value = '';
+      document.getElementById('j-role').value = '';
+      document.getElementById('j-location').value = '';
+      document.getElementById('j-portfolio').value = '';
+      document.getElementById('j-q1').value = '';
+      document.getElementById('j-q2').value = '';
+      document.getElementById('j-q3').value = '';
+      document.getElementById('j-commitment').value = '';
+      document.getElementById('j-equity').value = '';
+      document.getElementById('j-else').value = '';
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (error) {
+    alert('There was an issue submitting your application. Please email chris@macgregorholding.com directly. Sorry!');
+  }
 }
 </script>
 
