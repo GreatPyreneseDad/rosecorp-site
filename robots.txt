@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+Sitemap: https://roseglass.dev/sitemap.xml
+
+# Crawl delay for polite bots (optional)
+Crawl-delay: 1
