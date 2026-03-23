@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AI-powered websites for small businesses in Northern Michigan. Custom design, mobile-ready, includes domain setup and 3 months free maintenance. $499 flat rate.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="AI Websites for Northern Michigan — Rose Glass">
+<meta property="og:description" content="Custom AI-integrated websites built for small businesses. Fast deployment, professional design, flat rate pricing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roseglass.dev/websites.html">
+<meta property="og:image" content="https://roseglass.dev/og-image.png">
+<title>AI Websites for Northern Michigan — Rose Glass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1410; --parchment: #f5f0e8; --warm-white: #faf8f3;
+    --rose: #c9634a; --rose-light: #e8a090; --rose-pale: #f5ddd8;
+    --glass: rgba(201,99,74,0.08); --border: rgba(26,20,16,0.12);
+    --muted: #6b5e55; --serif: 'Cormorant Garamond', serif; --mono: 'DM Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--serif); background: var(--warm-white); color: var(--ink); overflow-x: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000; opacity: 0.5;
+  }
+  .back-bar { padding: 0.9rem 5vw; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.75rem; }
+  .back-bar a { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+  .back-bar a:hover { color: var(--rose); }
+  .back-bar .sep { color: var(--border); }
+  .back-bar .current { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink); }
+  header { padding: 2.5rem 5vw 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; }
+  .logo { font-size: 1.1rem; font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .logo span { color: var(--rose); }
+  .header-nav { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--muted); }
+  .hero { padding: 8vw 5vw 6vw; max-width: 1100px; margin: 0 auto; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-eyebrow::after { content: ''; display: block; width: 3rem; height: 1px; background: var(--rose); }
+  .hero h1 { font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; max-width: 16ch; }
+  .hero h1 em { font-style: italic; color: var(--rose); }
+  .hero-sub { margin-top: 3rem; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 300; color: var(--muted); max-width: 52ch; line-height: 1.6; }
+  .hero-price { margin-top: 3.5rem; display: inline-flex; align-items: baseline; gap: 0.75rem; background: var(--glass); border: 1px solid var(--rose-light); border-radius: 2px; padding: 1.25rem 2rem; }
+  .hero-price .amount { font-size: 3rem; font-weight: 600; color: var(--rose); line-height: 1; }
+  .hero-price .details { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); line-height: 1.6; }
+  .section { padding: 6vw 5vw; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--muted); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 5vw; }
+  .includes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+  .include-item { background: var(--warm-white); padding: 2rem 1.75rem; transition: background 0.2s; }
+  .include-item:hover { background: var(--rose-pale); }
+  .include-item .number { font-family: var(--mono); font-size: 0.65rem; color: var(--rose); margin-bottom: 0.75rem; }
+  .include-item h3 { font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem; }
+  .include-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+  .examples-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+  .example-card { border: 1px solid var(--border); padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
+  .example-card:hover { border-color: var(--rose-light); transform: translateY(-2px); }
+  .example-card .tag { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
+  .example-card h3 { font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; }
+  .example-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 1.25rem; }
+  .example-card a { font-family: var(--mono); font-size: 0.7rem; color: var(--rose); text-decoration: none; letter-spacing: 0.08em; border-bottom: 1px solid var(--rose-light); padding-bottom: 1px; }
+  .example-card a:hover { border-color: var(--rose); }
+  .ai-section { background: var(--ink); color: var(--parchment); padding: 7vw 5vw; }
+  .ai-section .inner { max-width: 1100px; margin: 0 auto; }
+  .ai-section .section-label { color: var(--rose-light); }
+  .ai-section .section-label::before { background: var(--rose-light); }
+  .ai-section h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.15; max-width: 22ch; margin-bottom: 3rem; }
+  .ai-section h2 em { font-style: italic; color: var(--rose-light); }
+  .ai-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2.5rem; }
+  .ai-point h4 { font-size: 1rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--parchment); }
+  .ai-point p { font-size: 0.9rem; color: rgba(245,240,232,0.6); line-height: 1.6; }
+  .pricing-strip { padding: 5vw; max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; }
+  .pricing-strip .tier { flex: 1; min-width: 200px; }
+  .pricing-strip .tier-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+  .pricing-strip .tier-price { font-size: 2.5rem; font-weight: 300; color: var(--ink); line-height: 1; margin-bottom: 0.5rem; }
+  .pricing-strip .tier-price strong { color: var(--rose); font-weight: 600; }
+  .pricing-strip .tier-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+  .pricing-divider { width: 1px; height: 5rem; background: var(--border); }
+  .contact-section { background: var(--parchment); padding: 8vw 5vw; }
+  .contact-inner { max-width: 680px; margin: 0 auto; }
+  .contact-inner h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 0.75rem; }
+  .contact-inner h2 em { font-style: italic; color: var(--rose); }
+  .contact-inner .sub { font-size: 1rem; color: var(--muted); margin-bottom: 3rem; line-height: 1.6; }
+  .form-group { margin-bottom: 1.5rem; }
+  .form-group label { display: block; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--warm-white); border: 1px solid var(--border); border-radius: 0; padding: 0.875rem 1rem; font-family: var(--serif); font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--rose); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn { margin-top: 2rem; width: 100%; background: var(--ink); color: var(--parchment); border: none; padding: 1.1rem 2rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .submit-btn:hover { background: var(--rose); }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .form-status { margin-top: 1rem; font-family: var(--mono); font-size: 0.75rem; text-align: center; min-height: 1.5rem; }
+  .form-status.success { color: #4a7c59; }
+  .form-status.error { color: var(--rose); }
+  footer { padding: 3rem 5vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer .footer-left { font-size: 0.85rem; color: var(--muted); }
+  footer .footer-right { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); }
+  footer a { color: var(--rose); text-decoration: none; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { animation: fadeUp 0.8s ease 0.1s forwards; opacity: 0; }
+  .hero h1 { animation: fadeUp 0.8s ease 0.2s forwards; opacity: 0; }
+  .hero-sub { animation: fadeUp 0.8s ease 0.35s forwards; opacity: 0; }
+  .hero-price { animation: fadeUp 0.8s ease 0.5s forwards; opacity: 0; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .pricing-divider { display: none; } .pricing-strip { gap: 2rem; } }
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="index.html">&larr; roseglass.dev</a>
+  <span class="sep">/</span>
+  <span class="current">Websites for Northern Michigan</span>
+</div>
+
+<header>
+  <a href="index.html" class="logo">Rose <span>Glass</span></a>
+  <div class="header-nav">Northern Michigan · Jackson Hole</div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">AI-Integrated Websites</div>
+  <h1>Your business, <em>seen</em> the way it deserves to be.</h1>
+  <p class="hero-sub">We build fast, professional, AI-powered websites for small businesses across Northern Michigan. Everything included. Flat rate. No surprises.</p>
+  <div class="hero-price">
+    <div class="amount">$499</div>
+    <div class="details">Everything included<br>3 months maintenance free<br>$25/month after that</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="section-label">What's included</div>
+  <div class="includes-grid">
+    <div class="include-item"><div class="number">01</div><h3>Custom Design</h3><p>Built for your business — not from a template. Reflects who you are and who you serve.</p></div>
+    <div class="include-item"><div class="number">02</div><h3>Mobile-Ready</h3><p>Looks right on every device. Most of your customers are on their phone.</p></div>
+    <div class="include-item"><div class="number">03</div><h3>AI Integration</h3><p>Smart features built in — from curation to contact handling to search visibility.</p></div>
+    <div class="include-item"><div class="number">04</div><h3>Domain Setup</h3><p>We handle the technical setup. Your address, configured and connected.</p></div>
+    <div class="include-item"><div class="number">05</div><h3>3 Months Free Maintenance</h3><p>Updates, fixes, and changes included for the first three months. No hourly billing.</p></div>
+    <div class="include-item"><div class="number">06</div><h3>$25/Month After</h3><p>Month-to-month. No contracts. Keep it running or take it over yourself.</p></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <div class="section-label">Recent work</div>
+  <div class="examples-grid">
+    <div class="example-card">
+      <div class="tag">Tennis · Instruction</div>
+      <h3>AJK Tennis</h3>
+      <p>Clean, fast site for a working tennis instructor. Courts, lessons, contact. Built to be found and used.</p>
+      <a href="https://ajktennis.com" target="_blank" rel="noopener">ajktennis.com ↗</a>
+    </div>
+    <div class="example-card">
+      <div class="tag">Café · AI-Curated</div>
+      <h3>ChaCha Café</h3>
+      <p>AI-powered tea curation. Your preferences guide the menu. Built to bring people through the door.</p>
+      <a href="https://chacha.cafe" target="_blank" rel="noopener">chacha.cafe ↗</a>
+    </div>
+    <div class="example-card">
+      <div class="tag">Professional Services</div>
+      <h3>Meridian</h3>
+      <p>Professional presence that matches the quality of the work. Straightforward, credible, effective.</p>
+      <a href="https://meridianlnc.com" target="_blank" rel="noopener">meridianlnc.com ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="ai-section">
+  <div class="inner">
+    <div class="section-label">Why AI-integrated</div>
+    <h2>A website that <em>works</em> while you're working.</h2>
+    <div class="ai-points">
+      <div class="ai-point"><h4>Answers questions automatically</h4><p>Hours, services, directions — handled without you lifting a finger.</p></div>
+      <div class="ai-point"><h4>Gets found more easily</h4><p>AI-structured content helps search engines understand what you offer.</p></div>
+      <div class="ai-point"><h4>Grows with you</h4><p>Add booking, curation, or intake features when you're ready. The foundation is already there.</p></div>
+      <div class="ai-point"><h4>No tech knowledge required</h4><p>You run the business. We run the site. That's the deal.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="pricing-strip">
+  <div class="tier">
+    <div class="tier-label">Launch</div>
+    <div class="tier-price"><strong>$499</strong></div>
+    <div class="tier-desc">Full site, built and deployed. Everything included. 3 months free maintenance.</div>
+  </div>
+  <div class="pricing-divider"></div>
+  <div class="tier">
+    <div class="tier-label">Ongoing</div>
+    <div class="tier-price"><strong>$25</strong><span style="font-size:1rem;color:var(--muted)">/month</span></div>
+    <div class="tier-desc">Month-to-month after the first three months. Updates, hosting oversight, and small changes.</div>
+  </div>
+  <div class="pricing-divider"></div>
+  <div class="tier">
+    <div class="tier-label">Timeline</div>
+    <div class="tier-price" style="font-size:1.75rem"><strong>1–2</strong><span style="font-size:1rem;color:var(--muted)"> weeks</span></div>
+    <div class="tier-desc">From first conversation to live site. We move fast and we don't take on more than we can do well.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="margin-bottom:1.5rem">Get started</div>
+    <h2>Tell us about your <em>business.</em></h2>
+    <p class="sub">We'll be in touch within one business day. No pitch, no pressure — just a conversation about what you need.</p>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="form-group"><label for="name">Your name</label><input type="text" id="name" name="name" required placeholder="Jane Smith"></div>
+        <div class="form-group"><label for="business">Business name</label><input type="text" id="business" name="business" required placeholder="Smith Hardware"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required placeholder="jane@smithhardware.com"></div>
+        <div class="form-group"><label for="phone">Phone (optional)</label><input type="tel" id="phone" name="phone" placeholder="231-555-0100"></div>
+      </div>
+      <div class="form-group"><label for="location">Town / Area</label><input type="text" id="location" name="location" placeholder="Traverse City, Petoskey, Charlevoix…"></div>
+      <div class="form-group"><label for="current_site">Current website (if you have one)</label><input type="text" id="current_site" name="current_site" placeholder="mybusiness.com or 'none'"></div>
+      <div class="form-group"><label for="message">What do you want the site to do for you?</label><textarea id="message" name="message" placeholder="Tell us what you sell, who your customers are, and what's not working about your current situation online."></textarea></div>
+      <button type="submit" class="submit-btn" id="submitBtn">Send Inquiry</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    Rose Glass · MacGregor Holding Company · Jackson Hole, Wyoming<br>
+    <a href="mailto:admin@roseglass.dev">admin@roseglass.dev</a>
+  </div>
+  <div class="footer-right"><a href="index.html">&larr; roseglass.dev</a></div>
+</footer>
+
+<script>
+  const SUPABASE_URL = 'https://nanjrgyjbvhbgibpblfy.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hbmpyZ3lqYnZoYmdpYnBibGZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzA0MzUsImV4cCI6MjA4NzE0NjQzNX0.C9mJxaVPZ9TT91IvbadBX8ZPj_zIN0ncewkFSyHcYcs';
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('formStatus');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    status.textContent = ''; status.className = 'form-status';
+    const payload = {
+      name: document.getElementById('name').value.trim(),
+      business: document.getElementById('business').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim() || null,
+      location: document.getElementById('location').value.trim() || null,
+      current_site: document.getElementById('current_site').value.trim() || null,
+      message: document.getElementById('message').value.trim() || null,
+      source: 'roseglass.dev', submitted_at: new Date().toISOString()
+    };
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/web_inquiries`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': `Bearer ${SUPABASE_ANON}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        status.textContent = "Received. We'll be in touch within one business day.";
+        status.className = 'form-status success';
+        document.getElementById('contactForm').reset();
+      } else { throw new Error(); }
+    } catch { status.textContent = 'Something went wrong. Email us: admin@roseglass.dev'; status.className = 'form-status error'; }
+    btn.disabled = false; btn.textContent = 'Send Inquiry';
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.include-item, .example-card, .ai-point').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
